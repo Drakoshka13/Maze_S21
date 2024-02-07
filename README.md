@@ -1,81 +1,78 @@
 # Maze
 
-Implementation of the Maze project.
-
-The russian version of the task can be found in the repository.
+Реализация проекта Maze.
 
 ## Contents
 
 1. [Chapter I](#chapter-i) \
-   1.1. [Introduction](#introduction)
+    1.1. [Introduction](#introduction)
 2. [Chapter II](#chapter-ii) \
-   2.1. [Information](#information)
+    2.1. [Information](#information)
 3. [Chapter III](#chapter-iii) \
-   3.1. [Part 1](#part-1-implementation-of-the-maze-project) \
-   3.2. [Part 2](#part-2-generation-of-a-perfect-maze) \
-   3.3. [Part 3](#part-3-solving-the-maze) \
-   3.4. [Part 4](#part-4-bonus-cave-generation)
+    3.1. [Part 1](#part-1-реализация-проекта-maze) \
+    3.2. [Part 2](#part-2-генерация-идеального-лабиринта) \
+    3.3. [Part 3](#part-3-решение-лабиринта) \
+    3.4. [Part 4](#part-4-дополнительно-генерация-пещер) 
 
 
 ## Chapter I
 
 ![Maze](misc/images/A1_Maze.JPG)
 
-Eve approached the head's office just as the familiar, muted shouting emerged out of it:
+Ева подошла к кабинету начальства ровно в тот момент, когда из него послышались приглушенные крики знакомого голоса:
 
-`-` How…think of opening …cess to the INTERNET to thes..vers?! And most importantly why …ns?!
+`-` Как ... додуматься открыть ...туп в ИНТЕРНЕТ эти..рверам?! А самое главное зачем ...лы?!
 
-Going into the office now was clearly not the best idea, so Eve decided to wait out the obviously unpleasant conversation in the hallway. \
-After an unintelligible answer, the boss's outrages continued:
+Заходить сейчас в кабинет было явно не лучшей идеей, поэтому Ева решила переждать явно неприятный разговор в коридоре. \
+После неразборчивого ответа, возмущения босса продолжились:
 
-`-` You clearly don't understand the importance of this project to our... This is... And now go fix all these screw-ups!
+`-` Вы видимо совсем не осознаете важность этого проекта для нашей... Это... А сейчас бегом исправлять все эти косяки!
 
-The door opened, and Alice and Charlie hurried out of the office, looking downcast.
+Дверь в кабинет приоткрылась, откуда поспешно выходили Алиса с Чарли с потупленным взором.
 
-`-` And God help us if something gets leaked! – he shouted after.
+`-` И не дай бог что-то вдруг утекло! - раздалось им вдогонку.
 
-Alice and Charlie walked away in the opposite direction, not paying attention to Eve standing nearby. She waited a few minutes, then braced herself and knocked on the door.
+Алиса и Чарли удалились в противоположном направлении, даже не обратив на стоящую рядом Еву внимания. Подождав пару минут, она набралась сил и постучала в дверь.
 
-`-` Come in. Oh, Eve, yes, come in, - the boss said. The spacious room with wide windows was full of various books on algorithms, mathematics, and programming. In the middle of the room was a table with a plastic sign that said "Robert M."
+`-` Войдите. А, Ева, да, заходи, - пригласил ее босс. Просторная комната с широкими окнами была заполнена различными книгами по алгоритмам, математике и программированию. В середине комнаты находился стол, на котором красовалась пластиковая табличка "Роберт М.".
 
-`-` Bob, about the experiments for the task...''
+`-` Боб, я по поводу экспериментов по задачке..
 
-`-` With the mazes, yes, I know. They tested your developments. They are interesting, but too simple. We sent generation examples to our partners, but their brainchild went through the mazes in an embarrassingly short period of time. And in our case we need something much more complicated. \
-Try to reduce the number of correct ways. Browse the Internet again, look in the direction of caves and cellular automata, and then back to tests and experiments again. And remember: the more complicated the better!
+`-` С лабиринтами, да, знаю. Твои наработки протестировали. Они интересные, но слишком простые. Мы отправили примеры генераций нашим партнерам, но их детище прошло лабиринты за неприлично малый промежуток времени. А в нашем случае понадобится нечто еще сложнее. \
+Попробуй уменьшить количество корректных путей. Просмотри интернет еще раз, посмотри в сторону пещер и клеточных автоматов, и тогда вернемся еще раз к тестам и экспериментам. И помни: чем сложнее - тем лучше!
 
-Eve left the office and went to her workplace, wondering what other algorithms she could try. On the way, she was looking for Alice or Charlie to find out what had happened but couldn't find them, so she sat down at her computer and continued the work.
+Выйдя из кабинета, Ева отправилась к своему рабочему месту, обдумывая какие еще алгоритмы можно опробовать. По пути она попыталась найти глазами Алису или Чарли, чтобы узнать что случилось, но не найдя их села за компьютер и продолжила работу.
 
 ## Introduction
 
-In this project you’ll learn about mazes and caves, including the basic algorithms of their handling, such as: generation, rendering, solving.
+В данном проекте Вам предстоит познакомиться с лабиринтами и пещерами, а также основными алгоритмами их обработки, такими как: генерация, отрисовка, поиск решения.
 
 
 ## Chapter II
 
 ## Information
 
-A maze with "thin walls" is a table of _n_ rows by _m_ columns size. There may be "walls" between the cells of a table. The table as a whole is also surrounded by "walls".
+Лабиринт с "тонкими стенками" представляет собой таблицу размером _n_ строк на _m_ столбцов. 
+Между ячейками таблицы могут находиться "стены". Также "стенами" окружена вся таблица в целом. 
 
-The following is an example of such a maze: \
+Далее приведён пример такого лабиринта: \
 ![maze](misc/images/maze.jpg)
 
-The solution to a maze is the shortest path from a given starting point (table cell) to the ending one.
+Решением лабиринта считается кратчайший путь от заданной начальной точки (ячейки таблицы) до конечной. 
+При прохождении лабиринта можно передвигаться к соседним ячейкам, не отделенным "стеной" от текущей ячейки и находящимся сверху, снизу, справа или слева. 
+Кратчайшим маршрут считается, если он проходит через наименьшее число ячеек.
 
-When traversing a maze, you can move to neighboring cells that are not separated by a "wall" from the current cell and that are on the top, bottom, right or left.
-A route is considered the shortest if it passes through the smallest number of cells.
-
-An example of a maze with its solution:  \
+Пример лабиринта с его решением: \
 ![solution](misc/images/solution.jpg)
 
-In this example, the starting point is 10; 1, and the ending point is 6; 10.
+В этом примере начальная точка задана, как 10; 1, а конечная, как 6; 10.
 
-## Maze description
+## Описание лабиринта
 
-The maze can be stored in a file as a number of rows and columns, as well as two matrices containing the positions of vertical and horizontal walls respectively.
+Лабиринт может храниться в файле в виде количества строк и столбцов, а также двух матриц, содержащих положение вертикальных и горизонтальных стен соответственно. 
+В первой матрице отображается наличие стены справа от каждой ячейки, а во второй - снизу. 
 
-The first matrix shows the wall to the right of each cell, and the second - the wall at the bottom.
-
-An example of such a file:
+Пример подобного файла:  
 ```
 4 4
 0 0 0 1
@@ -89,39 +86,45 @@ An example of such a file:
 1 1 1 1
 ```
 
-The maze described in this file:  \
+Лабиринт, описанный в этом файле: \
 ![maze4](misc/images/maze4.jpg)
 
-See materials for more examples of maze descriptions.
+Больше примеров описания лабиринтов можно найти в материалах.
 
-## Flaws in mazes
+## Недостатки лабиринтов
 
-Maze flaws include isolated areas and loops.
+К недостаткам лабиринтов относятся изолированные области и петли.
 
-An isolated area is a part of the maze with passages that you cannot access from the rest of the maze. For example: \
+Изолированная область - это часть лабиринта с проходами, в которые нельзя попасть из оставшейся части лабиринта. Например: \
 ![isolated](misc/images/isolated.png)
 
-A loop is a part of the maze with passages that can be walked in "circles". The walls in the loops are not connected to the walls surrounding the maze. For example: \
+Петля - это часть лабиринта с проходами, по которым можно ходить "кругами". Стены в петлях не соединены со стенами, окружающими лабиринт. Например: \
 ![loop](misc/images/loop.png)
 
-## Generation using a cellular automaton
+## Генерация с использованием клеточного автомата
 
-In many games there is a need for branching locations, such as caves.
-They can be created by generation using the cellular automaton.
-This kind of generation uses an idea similar to the Game of Life you are already familiar with. The idea of the proposed algorithm consists of implementing only two steps: first, the whole field is filled randomly with walls - i.e., for each cell it is randomly determined whether it will be free or impassable - and then the map state is updated several times according to the conditions, similar to the birth/death ones in the Game of Life.
+Во многих играх есть необходимость в ветвящихся локациях, например пещерах. 
+Такие локации могут быть созданы генерацией с использованием клеточного автомата. 
+При подобной генерации используется идея, схожая с уже знакомой вам игрой "Жизнь". 
+Суть предложенного алгоритма состоит в реализации всего двух шагов: 
+сначала все поле заполняется случайным образом стенами — т.е. для каждой клетки случайным образом определяется, 
+будет ли она свободной или непроходимой — а затем несколько раз происходит обновление состояния карты в соответствии с условиями, 
+похожими на условия рождения/смерти в «Жизни».
 
-The rules are simpler than in the Game of Life - there are two special variables, one for "birth" of "dead" cells (the "birth" limit) and one for destruction of "live" cells (the "death" limit).
-If "live" cells are surrounded by "live" cells, the number of which is less than the "death" limit, they "die". In the same way, if "dead" cells are next to "live" cells, the number of which is greater than the "birth" limit, they become "live".
+Правила проще, чем в "Жизни" - есть две специальные переменные, одна для "рождения" "мертвых" клеток (предел "рождения") и одна для уничтожения "живых" клеток (предел "смерти"). 
+Если "живые" клетки окружены "живыми" клетками, количество которых меньше, чем предел "смерти", они "умирают". 
+Аналогично если "мертвые" клетки находятся рядом с "живыми", количество которых больше, чем предел "рождения", они становятся "живыми".
 
-An example of the algorithm's result (the first picture shows only the initialized maze, and the second picture shows a maze in which there are no more changes in subsequent steps): \
+Пример результата работы алгоритма (на первой картинке только инициализированный лабиринт, а на второй лабиринт, в котором при последующих шагах больше не происходит изменений: \
 ![cave1](misc/images/cave1.jpg)
 ![cave2](misc/images/cave2.jpg)
 
-## Caves description
+## Описание пещер
 
-A cave that has passed 0 simulation steps (only initialized) can be stored in the file as a number of rows and columns, as well as a matrix containing the positions of "live" and "dead" cells.
+Пещера, прошедшая 0 шагов симуляции (только инициализированная), может храниться в файле в виде количества строк и столбцов, 
+а также матрицы, содержащей положение "живых" и "мертвых" клеток.
 
-An example of such a file:
+Пример подобного файла:
 ```
 4 4
 0 1 0 1
@@ -130,62 +133,63 @@ An example of such a file:
 0 0 1 1
 ```
 
-The cave described in this file: \
+Пещера, описанная в этом файле: \
 ![cave3](misc/images/cave3.jpg)
 
-See materials for more examples of cave descriptions.
+Больше примеров описания пещер можно найти в материалах.
 
 
 ## Chapter III
 
-## Part 1. Implementation of the Maze project
+## Part 1. Реализация проекта Maze
 
-You need to implement a Maze program that can generate and render perfect mazes and caves:
-- The program must be developed in C++ language of C++17 standard
-- The program code must be located in the src folder
-- When writing code it is necessary to follow the Google style
-- The program must be built with Makefile which contains standard set of targets for GNU-programs: all, install, uninstall, clean, dvi, dist, tests. Installation directory could be arbitrary, except the building one
-- GUI implementation, based on any GUI library with API for C++17: Qt, SFML, GTK+, Nanogui, Nngui, etc.
-- The program has a button to load the maze from a file, which is set in the format described [above](#maze-description)
-- Maximum size of the maze is
-  50x50
-- The loaded maze must be rendered on the screen in a field of 500 x 500 pixels
-- "Wall" thickness is 2 pixels
-- The size of the maze cells themselves is calculated so that the maze occupies the entire field allotted to it.
+Необходимо реализовать программу Maze, позволяющую генерировать и отрисовывать идеальные лабиринты и пещеры:
 
-## Part 2. Generation of a perfect maze
+- Программа должна быть разработана на языке C++ стандарта C++17
+- Код программы должен находиться в папке src
+- При написании кода необходимо придерживаться Google Style
+- Сборка программы должна быть настроена с помощью Makefile со стандартным набором целей для GNU-программ: all, install, uninstall, clean, dvi, dist, tests. Установка должна вестись в любой другой произвольный каталог
+- В программе должен быть реализован графический пользовательский интерфейс на базе любой GUI-библиотеки с API для C++ (Qt, SFML, GTK+, Nanogui, Nngui, etc.)
+- В программе предусмотрена кнопка для загрузки лабиринта из файла, который задается в формате, описанном [выше](#описание-лабиринта) 
+- Максимальный размер лабиринта - 50х50
+- Загруженный лабиринт должен быть отрисован на экране в поле размером 500 x 500 пикселей
+- Толщина "стены" - 2 пикселя
+- Размер самих ячеек лабиринта вычисляется таким образом, чтобы лабиринт занимал всё отведенное под него поле
 
-Add the ability to automatically generate a perfect maze. \
-A maze is considered perfect if it is possible to get from each point to any other point in exactly one way.
-- You must generate the maze according to **Eller's algorithm**
-- The generated maze must not have isolations and loops
-- Prepare full coverage of the perfect maze generation module with unit-tests
-- The user enters only the dimensionality of the maze: the number of rows and columns
-- The generated maze must be saved in the file format described [above](#maze-description)
-- The created maze should be displayed on the screen as specified in the [first part](#part-1-implementation-of-the-maze-project)
+## Part 2. Генерация идеального лабиринта
 
-## Part 3. Solving the maze
+Добавить возможность автоматической генерации идеального лабиринта. \
+Идеальным считается лабиринт, в котором из каждой точки можно попасть в любую другую точку ровно одним способом.
 
-Add the ability to show the solution to _any_ maze currently shown on the screen:
-- The user sets the starting and ending points
-- The route, which is the solution, must be displayed with a line 2 pixel thick, passing through the middle of all the cells in the maze through which the solution runs.
-- The color of the solution line must be different from the color of the walls, and the field
-- Prepare full coverage of the maze solving module with unit-tests
+- Генерировать лабиринт нужно согласно **алгоритму Эллера**
+- Сгенерированный лабиринт не должен иметь изолированных областей и петель
+- Должно быть обеспечено полное покрытие unit-тестами модуля генерации идеального лабиринта
+- Пользователем вводится только размерность лабиринта: количество строк и столбцов
+- Сгенерированный лабиринт должен сохраняться в файл в формате, описанном [выше](#описание-лабиринта) 
+- Созданный лабиринт должен отображаться на экране как указано в [первой части](#part-1-реализация-проекта-maze)
 
-## Part 4. Bonus. Cave Generation
+## Part 3. Решение лабиринта
 
-Add cave generation [using a cellular automaton](#generation-using-a-cellular-automaton):
-- The user selects the file that describes the cave according to the format described [above](#caves-description)
-- Use a separate window or tab in the user interface to display the caves
-- Maximum size of the cave is 50 x 50
-- The loaded cave must be rendered on the screen in a field of 500 x 500 pixels
-- The user sets the limits for "birth" and "death" of a cell, as well as the chance for the starting initialization of the cell
-- The "birth" and "death" limits can have values from 0 to 7
-- Cells outside the cave are considered alive
-- There should be a step-by-step mode for rendering the results of the algorithm in two variants:
-    - Pressing the next step button will lead to rendering the next iteration of the algorithm
-    - Pressing the automatic work button starts rendering iterations of the algorithm with a frequency of 1 step in `N` milliseconds, where the number of milliseconds `N` is set through a special field in the user interface
-- The size of cells in pixels is calculated so that the cave occupies the entire field allotted to it
-- Prepare full coverage of the cave generation module with unit-tests
+Добавить возможность показать решение _любого_ лабиринта, который сейчас изображен на экране:
+- Пользователем задаются начальная и конечная точки
+- Маршрут, являющийся решением, отобразить линией толщиной 2 пикселя, проходящей через середины всех ячеек лабиринта, через которые пролегает решение
+- Цвет линии решения должен быть отличным от цветов стен и поля
+- Должно быть обеспечено полное покрытие unit-тестами модуля решения лабиринта
 
-💡 [Tap here](https://forms.yandex.ru/cloud/64181d8ff47e7326ab0fc364/) **to leave your feedback on the project**. Product Team really tries to make your educational experience better.
+## Part 4. Дополнительно. Генерация пещер
+
+Добавить генерацию пещер с [использованием клеточного автомата](#генерация-с-использованием-клеточного-автомата):
+- Пользователем выбирается файл, в котором описан пещера по описанному [выше](#описание-пещер) формату
+- Для отображения пещер использовать отдельное окно или вкладку пользовательского интерфейса
+- Максимальный размер пещеры - 50 х 50
+- Загруженная пещера должна быть отрисована на экране в поле размером 500 x 500 пикселей
+- Пользователем задаются пределы "рождения" и "смерти" клетки, а также шанс на начальную инициализацию клетки
+- Пределы "рождения" и "смерти" могут иметь значения от 0 до 7
+- Клетки за границей пещеры считаются живыми
+- Должен быть предусмотрен пошаговый режим отрисовки результатов работы алгоритма в двух вариантах:
+  - По нажатию на кнопку следующего шага отрисовывается очередная итерация работы алгоритма
+  - По нажатию на кнопку автоматической работы запускается отрисовка итераций работы алгоритма с частотой 1 шаг в `N` миллисекунд, где число миллисекунд `N` задаётся через специальное поле в пользовательском интерфейсе
+- Размер клеток в пикселях вычисляется таким образом, чтобы пещера занимала всё отведенное под него поле
+- Должно быть обеспечено полное покрытие unit-тестами модуля генерации пещер
+
+💡 [Нажми тут](https://forms.yandex.ru/cloud/64181d8ff47e7326ab0fc364/), **чтобы поделиться с нами обратной связью на этот проект**. Это анонимно и поможет команде Продукта сделать твоё обучение лучше.
