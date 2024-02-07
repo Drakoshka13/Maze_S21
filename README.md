@@ -21,7 +21,7 @@ Importing a maze from a txt file is available in the following format.
 The file contains two numbers - the number of rows and columns, as well as two matrices containing the position of vertical and horizontal walls, respectively.
 
 Example:
-
+```
 4 4
 0 0 0 1
 1 0 1 1
@@ -32,6 +32,7 @@ Example:
 0 0 1 0
 1 1 0 1
 1 1 1 1
+```
 The generated maze can be exported to a txt file in the format described above.
 
 ## Limitations
