@@ -10,9 +10,9 @@ The Maze program is a desktop application that allows solving two-dimensional ma
 
 In the Maze program, you can generate an ideal maze according to the Eller's algorithm without closed areas and loops by:
 
-*Choosing the desired number of columns and rows in the maze
-*Clicking the "Generate" button
-*When clicking the "Solve" button, the maze will find a path from the top left cell to the bottom right
+* Choosing the desired number of columns and rows in the maze
+* Clicking the "Generate" button
+* When clicking the "Solve" button, the maze will find a path from the top left cell to the bottom right
 
 Note that you can use your own start and end points. Simply click on the desired cells.
 
@@ -21,6 +21,7 @@ Importing a maze from a txt file is available in the following format.
 The file contains two numbers - the number of rows and columns, as well as two matrices containing the position of vertical and horizontal walls, respectively.
 
 Example:
+
 4 4
 0 0 0 1
 1 0 1 1
