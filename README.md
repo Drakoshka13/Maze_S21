@@ -44,7 +44,7 @@ Building solutions is only available for two points.
 The maze cannot be scaled - the field is set to a size of 500 x 500 pixels, with a line width of 2 pixels.
 Passage width - 1 cell.
 
-##Example of Use
+## Example of Use
 
 Set the desired width and height
 Click on an empty maze field to generate
